@@ -1,7 +1,8 @@
 import java.util.Scanner;
 
 public class VetorOps {
-    Integer vetor [] = new Integer [5];
+    Integer vetor [] = new Integer [10];
+    int aux;
 
 
     public void preencherVetor() {
@@ -12,9 +13,8 @@ public class VetorOps {
         }
     }
 
-    public void ordenarCrescente() {
+    public void bubbleSort() {
         for (int j = 0; j < this.vetor.length-1; j++) {
-            int aux;
                 int cont = 0;
                 System.out.println("Laço Externo.");
                 for (int i = 0; i < this.vetor.length-1-j; i++) {
@@ -29,7 +29,21 @@ public class VetorOps {
                     break;
                 }
         }
+    }
 
+    public void insertionSort() {
+        for (int i = 1; i < this.vetor.length; i++) {
+            if(this.vetor[i] < this.vetor[i-1]) {
+                for (int j = i; j > 0; j--) {
+                    this.aux = this.vetor[j];
+                    this.vetor[j] = this.vetor[j-1];
+                    this.vetor[j-1] = this.aux;
+                    if(j == 1 || this.vetor[j-1] > this.vetor[j-2]) {
+                        break;
+                    }
+                }
+            }
+        }
     }
 
     public void exibirVetor() {
@@ -39,4 +53,6 @@ public class VetorOps {
         }
         System.out.println("=============");
     }
+
+
 }
