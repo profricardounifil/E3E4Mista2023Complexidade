@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class VetorOps {
-    Integer vetor [] = new Integer [10];
+    Integer vetor [] = new Integer [5];
     int aux;
 
 
@@ -44,6 +44,21 @@ public class VetorOps {
                 }
             }
         }
+    }
+
+    public void selectionSort() {
+        for (int i = 0; i < this.vetor.length-1; i++) {
+            int indiceMenor = i;
+            for (int j = i+1; j < this.vetor.length; j++) {
+                if(this.vetor[j] < this.vetor[indiceMenor]) {
+                    indiceMenor = j;
+                }
+            }
+            aux = this.vetor[i];
+            this.vetor[i] = this.vetor[indiceMenor];
+            this.vetor[indiceMenor] = aux;
+        }
+
     }
 
     public void exibirVetor() {
