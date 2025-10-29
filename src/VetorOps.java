@@ -61,6 +61,28 @@ public class VetorOps {
 
     }
 
+    public void selectionSortTunado() {
+        for (int i = 0; i < (this.vetor.length-1)/2; i++) {
+            int indiceMenor = i;
+            int indiceMaior = i;
+            for (int j = i+1; j < this.vetor.length-1-i; j++) {
+                if(this.vetor[j] < this.vetor[indiceMenor]) {
+                    indiceMenor = j;
+                }
+                if(this.vetor[j] > this.vetor[indiceMaior]) {
+                    indiceMaior = j;
+                }
+            }
+            aux = this.vetor[i];
+            this.vetor[i] = this.vetor[indiceMenor];
+            this.vetor[indiceMenor] = aux;
+            aux = this.vetor[vetor.length-1-i];
+            this.vetor[vetor.length-1-i] = this.vetor[indiceMaior];
+            this.vetor[indiceMaior] = aux;
+        }
+
+    }
+
     public void exibirVetor() {
         System.out.println("Exibindo o vetor: ");
         for (int i = 0; i < this.vetor.length; i++) {
